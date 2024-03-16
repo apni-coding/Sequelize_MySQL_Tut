@@ -1,26 +1,13 @@
 const express = require('express');
 const { router } = require('./routes/router');
+const { dbConnection } = require('./config/dbConnect');
 
 const app = express();
 
 app.use('/', router);
 
-//lco3000/register-post
-
-app.listen(3000, ()=>{
-    console.log(`server is listen at port : 3000`)
+app.listen(3000, () => {
+    console.log(`server is listen at port : 3000`);
+    dbConnection();
 });
 
-
-//file :-
-/*
-M:- Model
-V:- View
-C:- Controller
-
-C:- create
-R:- read
-U:- Update
-D:- Delete
-
-*/
