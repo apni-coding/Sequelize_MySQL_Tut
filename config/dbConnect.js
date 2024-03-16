@@ -1,11 +1,11 @@
 const { Sequelize } = require('sequelize');
 
+const sequelize = new Sequelize('world', 'root', 'Admin@123', {
+    host: 'localhost',
+    port: 3306,
+    dialect: 'mysql'
+});
 const dbConnection = async () => {
-    const sequelize = new Sequelize('world', 'root', 'Admin@123', {
-        host: 'localhost',
-        port: 3306,
-        dialect: 'mysql'
-    });
     try {
         await sequelize.authenticate();
         console.log('Db connection has been established successfully.');
@@ -14,4 +14,4 @@ const dbConnection = async () => {
     }
 };
 
-module.exports = {dbConnection}
+module.exports = {dbConnection, sequelize}
